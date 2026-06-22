@@ -1,0 +1,15 @@
+<h1>Products</h1>
+
+@for(product of products; track product.id){
+
+  <div>
+    <h3>{{product.name}}</h3>
+    <p>₹{{product.price}}</p>
+  </div>
+
+  <button
+  (click)="addToCart(product)">
+  Add To Cart
+</button>
+
+}

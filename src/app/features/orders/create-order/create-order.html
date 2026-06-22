@@ -1,0 +1,50 @@
+<h1>Create Order</h1>
+
+<select [(ngModel)]="customerId">
+
+  <option [value]="0">
+    Select Customer
+  </option>
+
+  @for(customer of customers; track customer.id){
+
+    <option [value]="customer.id">
+      {{customer.name}}
+    </option>
+
+  }
+
+</select>
+
+<br><br>
+
+<select [(ngModel)]="productId">
+
+  <option [value]="0">
+    Select Product
+  </option>
+
+  @for(product of products; track product.id){
+
+    <option [value]="product.id">
+      {{product.name}}
+    </option>
+
+  }
+
+</select>
+
+<br><br>
+
+<input
+  type="number"
+  [(ngModel)]="quantity">
+
+<br><br>
+
+<button
+  (click)="placeOrder()">
+
+  Place Order
+
+</button>

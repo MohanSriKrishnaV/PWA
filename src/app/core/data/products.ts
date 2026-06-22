@@ -1,0 +1,22 @@
+import { Product } from '../models/product.model';
+
+export const PRODUCTS: Product[] = [
+  {
+    id: 1,
+    name: 'Rice 25kg',
+    price: 1200,
+    category: 'Food',   
+  },
+  {
+    id: 2,
+    name: 'Sugar 10kg',
+    price: 450,
+    category: 'Food',
+  },
+  {
+    id: 3,
+    name: 'Cooking Oil 5L',
+    price: 850,
+    category: 'Food',
+  }
+];

@@ -1,0 +1,12 @@
+<h1>Customers</h1>
+
+@for(customer of customers; track customer.id){
+
+  <div>
+    <h3>{{customer.name}}</h3>
+
+    <p>{{customer.phone}}</p>
+  </div>
+
+  <hr>
+}
