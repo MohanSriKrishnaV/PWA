@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MATERIAL_IMPORTS } from '../../../../shared/material-imports';
 
 @Component({
   selector: 'app-inspection-form',
-  imports: [],
+  standalone: true,
+  imports: [...MATERIAL_IMPORTS],
   templateUrl: './inspection-form.html',
   styleUrl: './inspection-form.scss',
 })

@@ -1,17 +1,16 @@
 <h1>Notes PWA</h1>
 
-<input
-  [(ngModel)]="note"
-  placeholder="Enter note">
+<mat-form-field appearance="fill">
+  <mat-label>New Note</mat-label>
+  <input matInput [(ngModel)]="note" placeholder="Enter note">
+</mat-form-field>
 
-<button (click)="addNote()">
-  Add
-</button>
+<button mat-raised-button color="primary" (click)="addNote()">Add</button>
 
-<hr>
+<mat-divider></mat-divider>
 
-<ul>
+<mat-list>
   @for(item of notes; track item){
-    <li>{{item}}</li>
+    <mat-list-item>{{item}}</mat-list-item>
   }
-</ul>
+</mat-list>

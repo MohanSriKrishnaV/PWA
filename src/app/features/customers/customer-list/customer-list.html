@@ -1,12 +1,31 @@
-<h1>Customers</h1>
+<h1>
+  Customers
+  <span class="count">
+    ({{ customers.length }})
+  </span>
+</h1>
 
-@for(customer of customers; track customer.id){
+<div class="customers-container">
 
-  <div>
-    <h3>{{customer.name}}</h3>
+  @for(customer of customers; track customer.id){
 
-    <p>{{customer.phone}}</p>
-  </div>
+    <mat-card class="customer-card">
 
-  <hr>
-}
+      <div class="customer-header">
+
+        <div class="avatar">
+          {{ customer.name.charAt(0) }}
+        </div>
+
+        <div class="customer-details">
+          <h3>{{ customer.name }}</h3>
+          <p>{{ customer.phone }}</p>
+        </div>
+
+      </div>
+
+    </mat-card>
+
+  }
+
+</div>

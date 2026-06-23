@@ -23,11 +23,11 @@ export class OrderService {
   }
 
   saveOrder(order: Order): void {
-
+debugger
     const orders = this.getOrders();
 
     orders.push(order);
-
+console.log('saveOrder', orders);
     this.storage.set(
       this.STORAGE_KEY,
       orders
@@ -52,4 +52,26 @@ export class OrderService {
     orders
   );
 }
+
+syncOrders() {
+
+  const orders = this.getOrders();
+
+  orders.forEach(order => {
+
+    if (order.syncStatus === 'PENDING') {
+
+      setTimeout(() => {
+
+        order.syncStatus = 'SYNCED';
+
+        this.storage.set(
+          this.STORAGE_KEY,
+          orders
+        );
+      }, 500);
+    }
+  });
+}
+
 }

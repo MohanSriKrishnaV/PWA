@@ -1,27 +1,75 @@
+<mat-toolbar class="app-toolbar">
 
+  <div class="brand-section">
 
+    <span class="brand-logo">📦</span>
 
-<h1>Sales Order PWA</h1>
+    <div>
+      <div class="app-title">
+        Sales Order PWA
+      </div>
 
-<nav>
-  <a routerLink="/">Home</a>
+      <div class="app-subtitle">
+        Offline First Order Management
+      </div>
+    </div>
 
-  <a routerLink="/products">Products</a>
+  </div>
 
-  <a routerLink="/customers">Customers</a>
+  <span class="spacer"></span>
 
-  <a routerLink="/cart">
-    Cart 
-    ({{ cartStore.totalItems() }})
-  </a>
+  <div
+    class="network-status"
+    [class.online]="network.isOnline()"
+    [class.offline]="!network.isOnline()">
 
-  <a routerLink="/orders">Orders</a>
+    @if(network.isOnline()){
 
-  <a routerLink="/reports">Reports</a>
-</nav>
+      <span>🟢 Online</span>
 
-<hr>
+    } @else {
 
-<router-outlet></router-outlet>
+      <span>🔴 Offline</span>
 
-<router-outlet />
+    }
+
+  </div>
+
+  <div class="nav-links">
+
+    <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+      Home
+    </a>
+
+    <a mat-button routerLink="/products" routerLinkActive="active-link">
+      Products
+    </a>
+
+    <a mat-button routerLink="/customers" routerLinkActive="active-link">
+      Customers
+    </a>
+
+    <a mat-button routerLink="/cart" routerLinkActive="active-link">
+      Cart
+      <span class="cart-badge">
+        {{ cartStore.totalItems() }}
+      </span>
+    </a>
+
+    <a mat-button routerLink="/orders" routerLinkActive="active-link">
+      Orders
+    </a>
+
+    <a mat-button routerLink="/reports" routerLinkActive="active-link">
+      Reports
+    </a>
+
+  </div>
+
+</mat-toolbar>
+
+<mat-divider></mat-divider>
+
+<div class="page-container">
+  <router-outlet></router-outlet>
+</div>

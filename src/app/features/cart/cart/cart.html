@@ -1,84 +1,143 @@
-<h1>Shopping Cart</h1>
+<h1>
+  Shopping Cart
+  <span class="count">
+    ({{ cartStore.cartItems().length }})
+  </span>
+</h1>
 
 @if(cartStore.cartItems().length === 0){
 
-  <p>Your cart is empty.</p>
+  <mat-card class="empty-cart">
+
+    <mat-card-content>
+      <mat-icon>shopping_cart</mat-icon>
+
+      <h2>Your Cart Is Empty</h2>
+
+      <p>Add products to create an order.</p>
+    </mat-card-content>
+
+  </mat-card>
 
 } @else {
 
-  @for(item of cartStore.cartItems(); track item.product.id){
+  <div class="cart-layout">
 
-    <div class="cart-item">
+    <div class="cart-items">
 
-      <h3>{{ item.product.name }}</h3>
+      @for(item of cartStore.cartItems(); track item.product.id){
 
-      <p>
-        Price: ₹{{ item.product.price }}
-      </p>
+        <mat-card class="cart-item">
 
-      <p>
-        Quantity: {{ item.quantity }}
-      </p>
+          <div class="item-info">
 
+            <div>
+              <h3>{{ item.product.name }}</h3>
 
-      <button
-  (click)="cartStore.removeFromCart(item.product.id)">
-  Remove
-</button>
+              <p>
+                ₹{{ item.product.price }}
+                ×
+                {{ item.quantity }}
+              </p>
+            </div>
 
-<button
-  (click)="cartStore.decreaseQuantity(item.product.id)">
-  -
-</button>
+            <div class="item-total">
+              ₹{{ item.product.price * item.quantity }}
+            </div>
 
-{{ item.quantity }}
+          </div>
 
-<button
-  (click)="cartStore.increaseQuantity(item.product.id)">
-  +
-</button>
-      <p>
-        Total:
-        ₹{{ item.product.price * item.quantity }}
-      </p>
+          <div class="actions">
+
+            <button
+              mat-icon-button
+              (click)="cartStore.decreaseQuantity(item.product.id)">
+
+              <mat-icon>remove</mat-icon>
+
+            </button>
+
+            <span class="qty">
+              {{ item.quantity }}
+            </span>
+
+            <button
+              mat-icon-button
+              (click)="cartStore.increaseQuantity(item.product.id)">
+
+              <mat-icon>add</mat-icon>
+
+            </button>
+
+            <button
+              mat-stroked-button
+              color="warn"
+              (click)="cartStore.removeFromCart(item.product.id)">
+
+              Remove
+
+            </button>
+
+          </div>
+
+        </mat-card>
+
+      }
 
     </div>
 
-    <hr>
+    <mat-card class="summary-card">
 
-  }
+      <h2>Order Summary</h2>
 
+      <mat-form-field appearance="outline">
 
-  <h3>Select Customer</h3>
+        <mat-label>Customer</mat-label>
 
-<select [(ngModel)]="selectedCustomerId">
+        <mat-select [(ngModel)]="selectedCustomerId">
 
-  <option [value]="0">
-    Select Customer
-  </option>
+          <mat-option [value]="0">
+            Select Customer
+          </mat-option>
 
-  @for(customer of customers; track customer.id){
+          @for(customer of customers; track customer.id){
 
-    <option [value]="customer.id">
-      {{ customer.name }}
-    </option>
+            <mat-option [value]="customer.id">
 
-  }
+              {{ customer.name }}
 
-</select>
+            </mat-option>
 
+          }
 
-  <h2>
-    Grand Total:
-    ₹{{ cartStore.totalAmount() }}
-  </h2>
+        </mat-select>
 
+      </mat-form-field>
 
-  <button
-  (click)="checkout()">
+      <div class="summary-row">
+        <span>Items</span>
+        <strong>{{ cartStore.cartItems().length }}</strong>
+      </div>
 
-  Checkout
+      <div class="summary-row total">
+        <span>Grand Total</span>
+        <strong>
+          ₹{{ cartStore.totalAmount() }}
+        </strong>
+      </div>
 
-</button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="checkout-btn"
+        (click)="checkout()">
+
+        Checkout
+
+      </button>
+
+    </mat-card>
+
+  </div>
 
 }

@@ -1,4 +1,20 @@
-import { Service } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
-@Service()
-export class Sync {}
+@Injectable({
+  providedIn: 'root'
+})
+export class SyncService {
+
+  isOnline = signal(navigator.onLine);
+
+  constructor() {
+
+    window.addEventListener('online', () => {
+      this.isOnline.set(true);
+    });
+
+    window.addEventListener('offline', () => {
+      this.isOnline.set(false);
+    });
+  }
+}

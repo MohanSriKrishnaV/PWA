@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { CUSTOMERS } from '../../../core/data/customers';
 import { OrderService } from '../../../core/services/order';
 import { Order } from '../../../core/models/order.model';
+import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
 @Component({
   selector: 'app-cart',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, ...MATERIAL_IMPORTS],
   templateUrl: './cart.html',
   styleUrl: './cart.scss',
 })
@@ -51,7 +53,7 @@ checkout() {
       quantity: this.cartStore.totalItems(),
       productId: this.cartStore.cartItems().map(item => item.product.id),
       productName: this.cartStore.cartItems().map(item => item.product.name),
-
+      syncStatus: 'PENDING'
   };
 
   this.orderService.createOrder(order);

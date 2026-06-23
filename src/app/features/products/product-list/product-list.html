@@ -1,15 +1,32 @@
 <h1>Products</h1>
 
-@for(product of products; track product.id){
+<div class="products-container">
 
-  <div>
-    <h3>{{product.name}}</h3>
-    <p>₹{{product.price}}</p>
-  </div>
+  @for(product of products; track product.id){
 
-  <button
-  (click)="addToCart(product)">
-  Add To Cart
-</button>
+    <mat-card class="product-card">
 
-}
+      <mat-card-title>
+        {{product.name}}
+      </mat-card-title>
+
+      <mat-card-content>
+        <p>₹{{product.price}}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="addToCart(product)">
+
+          Add To Cart
+
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+
+  }
+
+</div>

@@ -3,13 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { PRODUCTS } from '../../../core/data/products';
 import { CUSTOMERS } from '../../../core/data/customers';
 import { OrderService } from '../../../core/services/order';
+import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
 
 @Component({
   selector: 'app-create-order',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, ...MATERIAL_IMPORTS],
   templateUrl: './create-order.html',
   styleUrl: './create-order.scss',
-  standalone: true
 })
 
 
@@ -64,17 +65,15 @@ export class CreateOrder {
       product.price * this.quantity,
 
     orderDate:
-      new Date().toISOString()
+      new Date().toISOString(),
+
+          syncStatus: 'PENDING'
   };
-
-  orders.push(order);
-
-  // this.storage.set(
-  //   'orders',
-  //   orders
-  // );
+debugger
   this.order.saveOrder(order);
 
   alert('Order Created');
 }
+
+
 }

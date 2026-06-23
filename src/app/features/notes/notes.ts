@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MATERIAL_IMPORTS } from '../../shared/material-imports';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ...MATERIAL_IMPORTS],
   templateUrl: './notes.html'
 })
 export class Notes {

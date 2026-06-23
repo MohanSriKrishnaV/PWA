@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  standalone: true,
+  imports: [...MATERIAL_IMPORTS],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })

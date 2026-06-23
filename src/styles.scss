@@ -1,0 +1,102 @@
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.spacer {
+	flex: 1 1 auto;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.cdk-overlay-pane {
+  z-index: 1000;
+}
+
+.mat-mdc-select-panel {
+  background: white !important;
+}
+
+
+
+/* ==========================
+   MAT FORM FIELD
+========================== */
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+  border-radius: 10px !important;
+}
+
+/* ==========================
+   SELECT TRIGGER
+========================== */
+
+.mat-mdc-select-trigger {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 14px;
+}
+
+/* ==========================
+   DROPDOWN PANEL
+========================== */
+
+.mat-mdc-select-panel {
+  padding: 8px !important;
+
+  border-radius: 12px !important;
+
+  background: #ffffff !important;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ==========================
+   OPTIONS
+========================== */
+
+.mat-mdc-option {
+  min-height: 48px !important;
+
+  padding: 0 16px !important;
+
+  margin: 4px 0 !important;
+
+  border-radius: 8px !important;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mat-mdc-option:hover {
+  background: #f3f4f6 !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: #e8f0fe !important;
+}
+
+/* ==========================
+   OPTION TEXT
+========================== */
+
+.mat-mdc-option .mdc-list-item__primary-text {
+  width: 100%;
+  padding-left: 4px;
+}
+
+/* ==========================
+   OVERLAY FIXES
+========================== */
+
+.cdk-overlay-pane {
+  z-index: 2000;
+}
