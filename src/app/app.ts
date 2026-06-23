@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { CartStore } from './core/stores/cart.store';
 import { MATERIAL_IMPORTS } from './shared/material-imports';
 import { SyncService } from './core/services/sync';
+import { OrderDbService } from './core/services/db';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,7 @@ import { SyncService } from './core/services/sync';
 })
 export class App {
   protected readonly title = signal('pwa');
-  constructor(private router: Router, public cartStore: CartStore) {
-    // console.log('App constructor', cartStore.totalItems(), cartStore);
+  constructor(public cartStore: CartStore) {
   }
   network = inject(SyncService);
 }

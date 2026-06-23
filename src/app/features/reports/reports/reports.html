@@ -1,6 +1,47 @@
-<mat-card>
-  <mat-card-title>Reports</mat-card-title>
-  <mat-card-content>
-    <p>Generate and view reports here.</p>
-  </mat-card-content>
-</mat-card>
+<h1 class="page-title">
+  Reports Dashboard
+</h1>
+
+<div class="stats-grid">
+
+  <mat-card class="stat-card">
+
+    <h2>Total Orders</h2>
+
+    <div class="value">
+      {{ totalOrders() }}
+    </div>
+
+  </mat-card>
+
+  <mat-card class="stat-card">
+
+    <h2>Total Revenue</h2>
+
+    <div class="value">
+      ₹{{ totalRevenue() }}
+    </div>
+
+  </mat-card>
+
+  <mat-card class="stat-card">
+
+    <h2>Pending Sync</h2>
+
+    <div class="value pending">
+      {{ pendingOrders() }}
+    </div>
+
+  </mat-card>
+
+  <mat-card class="stat-card">
+
+    <h2>Synced Orders</h2>
+
+    <div class="value synced">
+      {{ syncedOrders() }}
+    </div>
+
+  </mat-card>
+
+</div>

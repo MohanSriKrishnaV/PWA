@@ -28,7 +28,7 @@ export class CreateOrder {
   constructor(private order:OrderService
   ) {}
 
-  placeOrder() {
+  async placeOrder() {
 
   const customer =
     this.customers.find(
@@ -45,7 +45,7 @@ export class CreateOrder {
   }
 
   const orders =
-  this.order.getOrders() ?? [];
+  await this.order.getOrders();
 
   const order: any = {
 
@@ -69,8 +69,7 @@ export class CreateOrder {
 
           syncStatus: 'PENDING'
   };
-debugger
-  this.order.saveOrder(order);
+ await this.order.saveOrder(order);
 
   alert('Order Created');
 }

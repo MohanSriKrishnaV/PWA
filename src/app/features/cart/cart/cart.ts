@@ -5,6 +5,7 @@ import { CUSTOMERS } from '../../../core/data/customers';
 import { OrderService } from '../../../core/services/order';
 import { Order } from '../../../core/models/order.model';
 import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -13,11 +14,14 @@ import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
   styleUrl: './cart.scss',
 })
 export class Cart {
+  constructor( private snackBar:MatSnackBar){
+
+  }
     cartStore = inject(CartStore);
 selectedCustomerId = 0;
 customers=CUSTOMERS;
 private orderService = inject(OrderService);
-checkout() {
+async checkout() {
 
   if (!this.selectedCustomerId) {
 
@@ -56,11 +60,21 @@ checkout() {
       syncStatus: 'PENDING'
   };
 
-  this.orderService.createOrder(order);
+  await this.orderService.saveOrder(order);
 
   this.cartStore.clearCart();
 
-  alert('Order Created');
+  // alert('Order Created');
+  this.snackBar.open(
+  'Order Created',
+  'Close',
+  {
+    duration: 3000,
+    horizontalPosition: 'center',
+    verticalPosition: 'top',
+        panelClass: ['success-snackbar']
+  },
+);
 }
 }
 

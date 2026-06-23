@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Network } from './network';
+import { Network } from './db';
 
 describe('Network', () => {
   let service: Network;

@@ -1,103 +1,126 @@
-<div class="orders-header">
+<!-- loading {{loading}} -->
+@if(loading){
 
-  <div>
-    <h1 class="page-title">
-      Orders
-    </h1>
+  <div class="loader-container">
 
-    <p class="page-subtitle">
-      Manage and track customer orders
+    <mat-spinner
+      diameter="50">
+    </mat-spinner>
+
+    <p>
+      Loading Orders...
     </p>
+
   </div>
-
-  @if(orders.length > 0){
-
-    <button
-      mat-raised-button
-      color="primary"
-      class="sync-btn"
-      (click)="syncOrders()"
-      [disabled]="!network.isOnline()">
-
-      <mat-icon>
-        sync
-      </mat-icon>
-
-      Sync Orders
-
-    </button>
-
-  }
-
-</div>
-
-@if(orders.length === 0){
-
-  <mat-card class="empty-state">
-
-    <mat-card-content>
-
-      <mat-icon>
-        receipt_long
-      </mat-icon>
-
-      <h2>No Orders Found</h2>
-
-      <p>
-        Create your first order to get started.
-      </p>
-
-    </mat-card-content>
-
-  </mat-card>
 
 } @else {
 
-  <mat-list class="orders-list">
+  <div class="orders-header">
 
-    @for(order of orders; track order.id){
+    <div>
 
-      <mat-list-item>
+      <h1 class="page-title">
+        Orders
+      </h1>
 
-        <div class="order-content">
+      <p class="page-subtitle">
+        Manage and track customer orders
+      </p>
 
-          <div class="order-main">
+    </div>
 
-            <h3 class="customer-name">
-              {{order.customerName}}
-            </h3>
+    @if(orders.length > 0){
 
-            <div class="order-meta">
+      <button
+        mat-raised-button
+        color="primary"
+        class="sync-btn"
+        (click)="syncOrders()"
+        [disabled]="!network.isOnline()">
 
-              <span class="amount">
-                ₹{{order.totalAmount}}
-              </span>
+        <mat-icon>
+          sync
+        </mat-icon>
 
-              <span class="date">
-                {{order.orderDate | date:'medium'}}
-              </span>
+        Sync Orders
 
-            </div>
-
-          </div>
-
-          <span
-            class="status-chip"
-            [class.pending-chip]="order.syncStatus === 'PENDING'"
-            [class.synced-chip]="order.syncStatus === 'SYNCED'">
-
-            {{order.syncStatus}}
-
-          </span>
-
-        </div>
-
-      </mat-list-item>
-
-      <mat-divider></mat-divider>
+      </button>
 
     }
 
-  </mat-list>
+  </div>
+
+  @if(orders.length === 0){
+
+    <mat-card class="empty-state">
+
+      <mat-card-content>
+
+        <mat-icon>
+          receipt_long
+        </mat-icon>
+
+        <h2>
+          No Orders Found
+        </h2>
+
+        <p>
+          Create your first order to get started.
+        </p>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  } @else {
+
+    <mat-list class="orders-list">
+
+      @for(order of orders; track order.id){
+
+        <mat-list-item>
+
+          <div class="order-content">
+
+            <div class="order-main">
+
+              <h3 class="customer-name">
+                {{ order.customerName }}
+              </h3>
+
+              <div class="order-meta">
+
+                <span class="amount">
+                  ₹{{ order.totalAmount }}
+                </span>
+
+                <span class="date">
+                  {{ order.orderDate | date:'medium' }}
+                </span>
+
+              </div>
+
+            </div>
+
+            <span
+              class="status-chip"
+              [class.pending-chip]="order.syncStatus === 'PENDING'"
+              [class.synced-chip]="order.syncStatus === 'SYNCED'">
+
+              {{ order.syncStatus }}
+
+            </span>
+
+          </div>
+
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+
+      }
+
+    </mat-list>
+
+  }
 
 }
