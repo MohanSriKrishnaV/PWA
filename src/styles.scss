@@ -125,36 +125,34 @@ body {
   z-index: 9999 !important;
 }
 
-/* Container */
-
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
   border-radius: 12px !important;
-
   min-height: 52px;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.25) !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: #0f172a !important;
 }
-
-/* Message Text */
 
 .mat-mdc-snack-bar-container .mdc-snackbar__label {
-  color: #ebe2e2 !important;
-
+  color: #f8fafc !important;
   font-size: 14px;
-
-  font-weight: 500;
-
+  font-weight: 600;
   line-height: 20px;
-  background-color: white;
+  letter-spacing: 0.01em;
+  background-color: transparent !important;
 }
 
-/* Action Button */
-
 .mat-mdc-snack-bar-container .mat-mdc-button {
-  color: #b52222 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
 
-  font-weight: 600;
+.mat-mdc-snack-bar-container .mat-mdc-button:hover,
+.mat-mdc-snack-bar-container .mat-mdc-button:focus,
+.mat-mdc-snack-bar-container .mat-mdc-button:active {
+  color: #fdfdfd !important;
+  background-color: rgba(228, 228, 228, 0.16) !important;
 }
 
 /* ===================================
@@ -162,8 +160,8 @@ body {
 =================================== */
 
 .success-snackbar {
-  --mdc-snackbar-container-color: #16a34a !important;
-  --mat-snack-bar-button-color: #32c21f !important;
+  --mdc-snackbar-container-color: #0f766e !important;
+  --mat-snack-bar-button-color: #ffffff !important;
 }
 
 /* ===================================
@@ -171,7 +169,7 @@ body {
 =================================== */
 
 .error-snackbar {
-  --mdc-snackbar-container-color: #dc2626 !important;
+  --mdc-snackbar-container-color: #b91c1c !important;
   --mat-snack-bar-button-color: #ffffff !important;
 }
 
@@ -180,7 +178,7 @@ body {
 =================================== */
 
 .warning-snackbar {
-  --mdc-snackbar-container-color: #d97706 !important;
+  --mdc-snackbar-container-color: #c2410c !important;
   --mat-snack-bar-button-color: #ffffff !important;
 }
 
@@ -189,7 +187,7 @@ body {
 =================================== */
 
 .info-snackbar {
-  --mdc-snackbar-container-color: #2563eb !important;
+  --mdc-snackbar-container-color: #1d4ed8 !important;
   --mat-snack-bar-button-color: #ffffff !important;
 }
 

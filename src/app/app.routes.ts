@@ -5,12 +5,12 @@ export const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 
   {
-    path: 'dashboard',
+    path: 'home',
     loadComponent: () =>
       import('./features/dashboard/home/home')
         .then(m => m.Home)

@@ -55,6 +55,7 @@ export class OrderList {
   }
 
   async syncOrders() {
+    this.loading = true;
 
     // console.log(this.orders.some((e:any)=>e.syncStatus=="SYNCED"));
     if(this.orders.every((e:any)=>e.syncStatus=="SYNCED")){
@@ -63,13 +64,14 @@ export class OrderList {
     }
 
 
-    this.loading = true;
     try {
 
       await this.order.syncOrders();
 // console.log("sunced in compo")
-      this.orders =await this.order.getOrders();
-        // console.log(this.orders,"orders seen")
+      let x:any =await this.order.getOrders();
+this.orders=[...x];
+        console.log(this.orders,"orders seen")
+      this.cdr.detectChanges();
 
     } finally {
       this.loading = false;

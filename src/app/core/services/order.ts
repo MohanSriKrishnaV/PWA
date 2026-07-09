@@ -139,18 +139,18 @@ console.log('Fetching orders from IndexedDB...',this.db.orders);
 
   async syncOrders(): Promise<void> {
 
-    const orders =
-      await this.getPendingOrders();
+    const orders = await this.getPendingOrders();
 
     for (const order of orders) {
 
-      setTimeout(async () => {
+      // setTimeout(async () => {
 
         order.syncStatus = 'SYNCED';
+    
 
         await this.updateOrder(order);
 
-      }, 500);
+      // }, 500);
 
     }
 
