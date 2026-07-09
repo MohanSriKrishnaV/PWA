@@ -4,6 +4,7 @@ import { PRODUCTS } from '../../../core/data/products';
 import { CUSTOMERS } from '../../../core/data/customers';
 import { OrderService } from '../../../core/services/order';
 import { MATERIAL_IMPORTS } from '../../../shared/material-imports';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-order',
@@ -25,7 +26,7 @@ export class CreateOrder {
 
   quantity = 1;
 
-  constructor(private order:OrderService
+  constructor(private order:OrderService,private snackBar:MatSnackBar
   ) {}
 
   async placeOrder() {
@@ -71,7 +72,17 @@ export class CreateOrder {
   };
  await this.order.saveOrder(order);
 
-  alert('Order Created');
+  // alert('Order Created');
+    this.snackBar.open(
+  'Order Created',
+  'Close',
+  {
+    duration: 3000,
+    horizontalPosition: 'center',
+    verticalPosition: 'top',
+        panelClass: ['warning-snackbar']
+  },
+);
 }
 
 

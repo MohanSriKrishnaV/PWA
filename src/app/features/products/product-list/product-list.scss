@@ -73,3 +73,18 @@ h1 {
   border-radius: 8px;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  :host {
+    padding: 16px;
+  }
+
+  .products-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .product-card {
+    padding: 14px;
+  }
+}

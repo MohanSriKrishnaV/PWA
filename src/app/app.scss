@@ -1,14 +1,11 @@
 .app-toolbar {
   height: 72px;
   padding: 0 24px;
-
   position: sticky;
   top: 0;
   z-index: 1000;
   background: white !important;
-
-  box-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .brand-section {
@@ -38,11 +35,8 @@
 
 .network-status {
   margin-right: 24px;
-
   padding: 6px 12px;
-
   border-radius: 999px;
-
   font-size: 13px;
   font-weight: 600;
 }
@@ -67,19 +61,18 @@
 }
 
 .active-link {
-  background: rgba(255, 255, 255, 0.18);
+  // background: rgba(255, 255, 255, 0.18);
+  color:rgb(27, 46, 195) !important;
+  font-weight: 900 !important;
+  // background-color: blue;
 }
 
 .cart-badge {
   margin-left: 2px;
-
   padding: 1px 4px;
-
   border-radius: 999px;
-
   background: white;
   color: #1976d2;
-
   font-size: 16px;
   font-weight: 900;
 }
@@ -169,4 +162,29 @@
 
 .cdk-overlay-pane {
   z-index: 2000;
+}
+
+@media (max-width: 768px) {
+  .app-toolbar {
+    height: auto;
+    padding: 12px 16px;
+  }
+
+  .brand-section {
+    gap: 8px;
+  }
+
+  .app-title {
+    font-size: 16px;
+  }
+
+  .network-status {
+    margin-right: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .page-container {
+    padding: 16px;
+  }
 }

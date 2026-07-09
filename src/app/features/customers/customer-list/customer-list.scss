@@ -85,3 +85,18 @@ h1 {
   color: #6b7280;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  :host {
+    padding: 16px;
+  }
+
+  .customers-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .customer-header {
+    align-items: flex-start;
+  }
+}

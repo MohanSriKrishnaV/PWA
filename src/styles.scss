@@ -192,3 +192,23 @@ body {
   --mdc-snackbar-container-color: #2563eb !important;
   --mat-snack-bar-button-color: #ffffff !important;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .mat-mdc-select-trigger {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .mat-mdc-option {
+    min-height: 44px !important;
+    font-size: 13px;
+  }
+
+  .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    min-height: 48px;
+  }
+}

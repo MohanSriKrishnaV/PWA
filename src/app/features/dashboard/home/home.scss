@@ -142,3 +142,26 @@
   font-weight: bold;
   color: #2563eb;
 }
+
+@media (max-width: 768px) {
+  :host {
+    padding: 16px;
+  }
+
+  .hero-card {
+    padding: 24px;
+  }
+
+  .hero-card h1 {
+    font-size: 28px;
+  }
+
+  .stats-grid,
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-card {
+    padding: 20px;
+  }
+}

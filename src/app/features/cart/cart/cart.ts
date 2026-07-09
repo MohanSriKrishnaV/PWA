@@ -24,9 +24,17 @@ private orderService = inject(OrderService);
 async checkout() {
 
   if (!this.selectedCustomerId) {
-
-    alert('Select customer');
-
+    // alert('Select customer');
+     this.snackBar.open(
+  'Select Customer',
+  'Close',
+  {
+    duration: 3000,
+    horizontalPosition: 'center',
+    verticalPosition: 'top',
+        panelClass: ['success-snackbar']
+  },
+);
     return;
   }
 
@@ -72,7 +80,7 @@ async checkout() {
     duration: 3000,
     horizontalPosition: 'center',
     verticalPosition: 'top',
-        panelClass: ['success-snackbar']
+        panelClass: ['warning-snackbar']
   },
 );
 }

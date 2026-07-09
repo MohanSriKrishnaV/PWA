@@ -55,3 +55,18 @@
 
   color: #16a34a;
 }
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .value {
+    font-size: 28px;
+  }
+}
